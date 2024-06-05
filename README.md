@@ -16,7 +16,7 @@ Advanced Topics: Introduction to Object-Oriented Programming, web scraping, and 
 
 Contact
 🔭 I'm currently in the process of putting my knowledge into practice.
-🌱 I'm learning more about Python, AWS, Linux, Cisco, Terraform, and strengthening my skills in SQL.
+🌱 I'm learning more about Python, AWS, and strengthening my skills in Terraform.
 💬 You can contact me at e.a.edwards12@hotmail.com.
 ⚡ Riddle: I slither and I hiss, but I'm not a snake. I execute code and avoid mistakes. What am I?
 
