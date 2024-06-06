@@ -62,11 +62,14 @@ a = "eric"
 b = int(input(""))
 print(a*b)
 
-# # Explica la diferencia entre variables globales y locales con un ejemplo.
+# Explica la diferencia entre variables globales y locales.
+
 # Variables Globales
 # Definición: Son aquellas que se declaran fuera de cualquier función y están disponibles
 # para cualquier parte del código, incluidas las funciones.
+
 # ####
+
 # Variables Locales
 # Definición: Son aquellas que se declaran dentro de una función y solo son accesibles dentro de esa función.
 
@@ -83,4 +86,11 @@ funcion()
 print("Fuera de la función, x =", x)
 # lo siguiente dará un error porque y no está definida fuera de la función
 #print("Fuera de la función, y =", y)
+
+# Escribe un programa que solicite al usuario su nombre y edad,
+# y luego imprima un mensaje que incluya esta información.
+
+name1 = input("tu nombre es:")
+age1 = int(input("tu edad es:"))
+print("Tu nombre es:",name1,"Y tu edad es:",age1,"años")
 
