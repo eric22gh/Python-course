@@ -92,5 +92,5 @@ print("Fuera de la función, x =", x)
 
 name1 = input("tu nombre es:")
 age1 = int(input("tu edad es:"))
-print("Tu nombre es:",name1,"Y tu edad es:",age1,"años")
+print("Tu nombre es:",name1,"Y tu edad es:",age1,)
 
