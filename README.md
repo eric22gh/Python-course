@@ -12,7 +12,7 @@ Data Structures: Working with lists, tuples, dictionaries, and sets.
 Modules and Packages: Utilizing built-in and external modules.
 File Handling: Reading from and writing to files.
 Error Handling: Managing errors and exceptions.
-Advanced Topics: Introduction to Object-Oriented Programming, web scraping, and data analysis.
+Advanced Topics: Introduction to Object-Oriented Programming, Web Scraping,Automation and Django.
 
 Contact
 🔭 I'm currently in the process of putting my knowledge into practice.
