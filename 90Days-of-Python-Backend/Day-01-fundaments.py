@@ -42,7 +42,8 @@ multiplicacion = a * b   # Multiplicación: multiplica dos valores.
 division = a / b         # División: divide un valor por otro, retorna un número decimal.
 potencia = a ** b        # Potenciación: eleva un número a la potencia de otro.
 division_entera = a // b # División entera: divide un valor por otro y redondea hacia abajo al entero más cercano, numeros impares
-modulo = a % b           # Módulo: obtiene el resto de la división de un valor por otro. numeros pares
+modulo = a % b           # Módulo: obtiene el resto de la división de un valor por otro,
+#                          numeros pares y saca mutiplos. si la operacion da 0 es un multiplo, numero par y divisible
 
 print("Suma:", suma)               # Suma: 5 + 3 = 8
 print("Resta:", resta)             # Resta: 5 - 3 = 2
