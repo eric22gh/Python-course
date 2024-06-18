@@ -48,4 +48,19 @@ print(my_po.values()) # listado de los valores
 #crear una nueva tabla con un solo valor de otra tabla
 my_rop = my_po.fromkeys(("edad",31))
 print(my_rop)
+#######################
+j_son = {
+    "nombre" : "eric",
+    "name" : "edwards",
+    "edad" : 30,
+    "ciudad" : "limom",
+    "estado": "soltero"
 
+}
+print(j_son)
+print(j_son["nombre"])
+
+j_son["edad"] = 55
+j_son["edad"] += 2
+
+print(j_son)

@@ -1,4 +1,8 @@
 #### introducion a python ######
+# python es de proposito general, lenguaje alto nivel, tipado dinamico, orientado a objetos, 
+# lenguaje interpretado(son mas faciles para corregir errores, pero son mas lentos que los compilados)
+# se puede mezclar facilmente con otros programas
+# multiparadiga: un programa sirve para varios SO
 
 print("hola, esta es la intro del curso de python")
 

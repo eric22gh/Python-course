@@ -47,3 +47,15 @@ print(my_eric)
 
 ##### como hacer sublistas
 print(my_eric[1:3]) # da los datos que estan en medio de la posicion de esos numeros
+#####################
+
+lost = ["dalto", "soy eric", 36, True] # estoy es un array
+print(lost)
+print(lost[2])
+print(lost[3])
+print(lost[0])
+
+lost[2] = 22
+print(lost)
+
+

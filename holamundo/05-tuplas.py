@@ -43,3 +43,10 @@ print(my_eric)
 # my_eric = tuple(my_tup) # convertir la lista en tupla
 # print(type(my_eric))
 del my_tup # la elimina momentaneamente del codigo, no como el clear que lo borra de una vez
+
+######## la tupla no puede modificar recordar
+
+lost_tuple = ("dalto", "soy eric", 36, True, 55, 10.5) 
+print(lost_tuple[1])
+
+# lost_tuple[2] = 22 va a dar error porque son inmutables

@@ -27,5 +27,12 @@ print(my_list[1])
 print(my_list)
 print(type(my_list))
 
+############### sets son elementos no son ordenados pero pueden cambiar, admite repeditos
+
+lost_set = {"dalto", "soy eric", 36, True, 36} # solo va a dar una vez 36 porque no admite duplicado,
+# se usa en python para eliminar datos duplicados, de lista a set y de set a list
+print(lost_set)
+# lost_set[0] = "eric" # da error porque son inmutables
+print(lost_set)
 
 

@@ -26,6 +26,33 @@ print(funciones.lower())
 print(funciones.lower().isupper())
 print(funciones.startswith("nan"))
 
+########## 
+sourse = "gelboness"
+sor = ("gelboness,hernandez")
+
+print(dir(sourse)) # ver las cosas que puedo hacer, es una funcion de python
+
+rest = sourse.upper()
+rest1 = "gelboness".upper() # todo a mayuscula
+rest1 = "gelboness".lower() # todo a minuscula
+rest1 = "gelboness".capitalize() # primera letra a mayuscula
+rest1 = sourse.find("b") # buscar algo, los espacios tambien se cuentan
+rest1 = sourse.index("s") # buscar algo igual q find pero la diferencia es que si index no encuentra la letra nos da error
+rest1 = sourse.isnumeric() # si hay un numerio en la cadena nos da true
+rest1 = sourse.isalpha() # letras de la a la x sin espacios, sin caracteres especiales, sin numeros
+rest1 = sourse.count("s") # cuantas veces sale esta letra o palabra en el strings
+rest10 = len(sourse) # cuantos caracteres hay en una cadena
+rest1 = sourse.startswith("gel") # si la cadena empieza con el parametro q le pasamos, devuelve true
+rest1 = sourse.endswith("ss") # si la cadena termina  con el parametro q le pasamos 
+rest1 = sourse.replace("gel","gael") # si encuentra una parte de la cadena que digas, la reemplaza por otra que quieras
+rest11 = sor.split(",") # se parar cadenas con el parametro que le pasemos y las combierte en una lista 
+
+print(type(rest11))
+print(rest11[1])
+print(rest10)
+
+
+
 
 
 

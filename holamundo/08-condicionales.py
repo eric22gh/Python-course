@@ -39,3 +39,25 @@ else:
 string = "eric"
 if string:
     print("hola eric")
+
+###################
+
+los = 5
+if los >= 3:
+    print("puedes pasar")
+else:
+    print("no puedes pasar")
+
+################### if anidados
+
+los = 5
+if los == 3:
+    print("puedes pasar")
+    if los == 2:
+        print("puedes pasar")
+    elif los == 1:
+        print("puedes pasar")
+    else:
+        print("eric")
+else:
+    print("no puedes pasar")
