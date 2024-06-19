@@ -18,7 +18,7 @@ print(my_lost[-1])
 print(my_lost[1])
 print(my_lost[-2])
 print(my_lost[2])
-print(my_lost.count("eric")) # contar elementos dentro de la propia lista
+print(my_lost.count("eric")) # contar cuantas veces sale este elemento dentro de la propia lista
 age, altura, name, surname = my_lost
 print(name) # desempaquetar una lista
 print(age)
