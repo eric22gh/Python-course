@@ -64,3 +64,27 @@ j_son["edad"] = 55
 j_son["edad"] += 2
 
 print(j_son)
+
+####### metodos
+
+Bone = {
+    "name" : "eric",
+    "surname" : "perez",
+    "age" : 30,
+    "apodo" : "memim",
+    "lenguaje" : {"patua", "español", "ingles"}
+}
+
+claves = Bone.items() # da los indices con su valor, con ese metodo se puede iterar este dic, con print(bone) da lo mismo pero no se puede iterar
+print(claves)
+
+Bone.get("name") # da el valor de ese indice
+
+op = Bone.keys() # nos da los indices
+print(op)
+
+Bone.pop("name", "age") # borra elementos del dic x medio del indice
+
+eric = Bone.fromkeys("surname", "alex")
+
+print(eric)

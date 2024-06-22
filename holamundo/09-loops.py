@@ -1,6 +1,5 @@
 #### loops o for; no sirve para iterar(pasar por el mismo codigo varias veces)
 
-
 #### while
 my = 0
 while my <= 10:
@@ -52,3 +51,65 @@ for nam in my_pop.values():
     print(nam)
 else:
     print("se detuvo la ejecucion")
+
+
+# un bucle q crea una variable que cada vez que da vuelta va a varle el valor de esa variable
+
+animales = ["perro", "gato", "sapo", "tigre", "culebra"]
+number = [55, 55, 10, 6, 7]
+
+for animal in animales:
+    print(f"Ahora la variable animal es: {animal}")
+
+for num in number:
+    print(num * 10)
+
+# iterar 2 listas, tienen que tener los mismos elementos
+for animal,num in zip(animales,number):
+    print(f"objetos de la lista {animal}")
+    print(f"objetos de la lista {num}")
+
+### recorer una lista
+for nom in enumerate(number):
+    indice = nom[0]
+    valor = nom[1]
+    print(f"el indice es: {indice} y el valor es: {valor}")
+    #print(nom) # devuelve el indice y valor
+
+
+#### recorrer dicionarios
+
+Bone = {
+    "name" : "eric",
+    "surname" : "perez",
+    "age" : 30,
+    "apodo" : "memim",
+    "lenguaje" : {"patua", "español", "ingles"}
+}
+
+for key in Bone:
+    print(key) # solo da el indice
+    
+for key in Bone.items(): # asi da indice y valor
+    idice = key[0]
+    valor = key[1]
+    print(f"el indice es: {idice} y el valor es: {valor}")
+    #print(key) 
+
+frutas = ["banao", "mango", "papaya", "sandia", "melon", "pipa", "pera"]
+
+for frut in frutas:
+    if frut == "pipa":
+        continue # se salta pipa
+    print(f"me voy a comer una {frut}")
+
+
+for frut in frutas:
+    print(f"me voy a comer una {frut}")
+    if frut == "mango":
+        break
+print(f"nme duele la panza por comer {frut} ya no voy a comer mas")
+
+numeros = [5, 10, 5, 6]
+numeros_dupli = [x*2 for x in numeros]
+print(numeros_dupli)

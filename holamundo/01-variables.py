@@ -34,6 +34,27 @@ print("Tu nombre es:", firts_name)
 print("Tienes una edad de:", años,"años")
 
 
+lista = [22, "eric", "hernandez"] # desempaquetar listas o tuplas
+edad, nombre, surname = lista
+print(surname)
+print(edad)
+print(nombre)
+
+## otra forma de hacer tuplas 
+
+tupla = "dato1", "dato2"
+tupla = "dato1", # con un solo dato
+
+
+print(type(tupla))
+
+########### conjuntos dentro de otro conjunto
+conjunto1 = frozenset(["dato3", "dato4"])
+conjunto2  = {conjunto1, "dato5"}
+print(conjunto2)
+
+rop = conjunto2.issubset(conjunto1) # si conjunto1 esta en conjunto2
+print(rop)
 
 
 

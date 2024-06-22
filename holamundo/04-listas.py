@@ -1,7 +1,7 @@
-####  estructuras de datos: listas es un conjunto de datos, son mutables
+####  estructuras de datos: listas es un conjunto de datos, son mutables usan mas memoria que las tuplas por duplican la variable para modificarla
 #tipos de datos:
 # listas [] conjunto de datos
-# tuplas () conjunto de valores, son inmutables, no se pueden cambiar
+# tuplas () conjunto de valores, son inmutables, no se pueden cambiar, pueden ir adentro de otros datos
 # sets {} 
 # diccionario {"x": 25} # se accede al dato por medio de la llave
 
@@ -58,4 +58,35 @@ print(lost[0])
 lost[2] = 22
 print(lost)
 
+######### metodos
 
+lost = ["dalto", "soy eric", 36, True]
+
+rep = len(lost) # candidad de elementos que tiene la lista
+print(rep)
+
+agre = lost.append("eric") # añadir un elemento al final de la lista
+print(lost)
+
+lost.insert(0, "hernandez") # insertar un elemento a un posicion especifica
+print(lost)
+
+lost.extend(["bonesse", False, 1.22, 55]) # añadir varios elementos a la lista
+print(lost)
+
+lost.pop(0) # eliminar un elemento en la lista
+print(lost)
+lost.pop(-1) # eliminar el ultimo elemento, -2 para el antepenultimo y asi sucesivamente
+
+lost.remove(36) # eliminar el valor silo encuentra
+
+# lost.clear() # eliminar todo en la lista
+lol = [55, 100, 56, 0, 1, 1000, True, False]
+
+lol.sort() # ordena la lista pero no acepta strings 
+print(lol)
+
+lol.reverse()
+print(lol)
+
+lol.index(1) # si esta este elemento en la lista
