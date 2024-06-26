@@ -1,6 +1,6 @@
 #### loops o for; no sirve para iterar(pasar por el mismo codigo varias veces)
 
-#### while
+#### while se ejecuta siempre q una condicion sea verdadera
 my = 0
 while my <= 10:
     print(my) ## va a imprimir 0 infinitas veces
@@ -20,8 +20,12 @@ while eric <= 15:
         break
     print("la ejecucion sigue")
 
+contador = 0
+while contador < 5:
+    contador += 1
+    print(contador)
 
-##### bucle for nos sirve para iterar un grupo de elementos y se va a iterar la misma cantidad de elemteos q tenga la lista
+##### bucle for nos sirve para iterar un grupo de elementos y se va a iterar la misma cantidad de elementos q tenga la lista
 
 my_list = [12, 35, 65, 98, 23, 10]
 
@@ -41,7 +45,7 @@ my_pop = {"nombre":"eric", "edad":30, "apellido":"edwards", "nick":"memin", 1.2:
 for nam in my_pop:
     print(nam)
     if nam == "edad":
-        print("encontre la edad")
+        print(f"la clave es {nam}, y el valor es {my_pop[nam]}")
         break
 else:
     print("terminado")
