@@ -85,3 +85,29 @@ print(multi_plicar(5))
 numeros1 = [1, 2, 6, 8, 16, 24, 55]
 numeros_pares = filter(lambda numero:numero%2 == 0, numeros1) # numeros pares con funciones lambda, filter ejecuta cada valor de un iterable(lista)
 print(list(numeros_pares))
+
+### lista de compañeros en una lista
+def obtener_compa(cantidad):
+    compañeros = []
+    for i in range(cantidad):
+        nombre = input("ingrese el nombre del compañero: ")
+        edad = input("ingrese la edad del compañero: ")
+        compañero = (nombre,edad)
+        compañeros.append(compañero)
+    compañeros.sort(key=lambda x:x[0])
+    return compañeros
+compa = obtener_compa(cantidad=2)
+print(compa)
+
+####### mostrar la serie de fibonacci del 0 a un numero
+def fibonacci(num):
+    a,b = 0,1
+    fibo_lista = []
+    for i in range(num):
+        if b > num: return fibo_lista
+        else: 
+            fibo_lista.append(b)
+            a,b = b,a+b # clave de fibonacci
+    
+resultado = fibonacci(20)
+print(resultado)
