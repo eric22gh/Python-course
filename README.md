@@ -1,6 +1,6 @@
 Hi there! 👋
 
-I'm Eric, a professional from the Costa Rican Social Security Fund (C.C.S.S). Currently, I'm immersed in the fascinating world of Python, AWS, Linux, Terraform, and SQL, learning and growing in these technologies.
+I'm Eric, a professional from the Costa Rican Social Security Fund (C.C.S.S). Currently, I'm immersed in the fascinating world of Python, AWS, and Terraform. learning and growing in these technologies.
 
 Description
 This repository is dedicated to my journey through a Python course. Here, you'll find scripts, projects, and exercises that I have completed as part of my learning process. The focus is on building a solid foundation in Python programming, which includes understanding core concepts, working with various libraries, and applying Python to solve real-world problems. Feel free to explore and reach out if you have any questions or need further assistance!
