@@ -9,5 +9,7 @@ apellidos = ["edwards", "lopez", "vargas","pertez"]
 with open("nombresyapellidos.txt","w") as arch:
     arch.writelines("los datos son:\n\n")
     [arch.writelines(f"nombre: {n}\nApeliido: {a}\n------------\n") for n,a in zip(nombres,apellidos)]
-    #####
+    
+
+
     

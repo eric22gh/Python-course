@@ -86,6 +86,19 @@ numeros1 = [1, 2, 6, 8, 16, 24, 55]
 numeros_pares = filter(lambda numero:numero%2 == 0, numeros1) # numeros pares con funciones lambda, filter ejecuta cada valor de un iterable(lista)
 print(list(numeros_pares))
 
+suma_valores = lambda one_valor, two_valor : one_valor + two_valor
+print(suma_valores(10, 53))
+
+suma_valores = lambda one_valor, two_valor : print(suma_valores(5,6))
+
+multi_valores = lambda one_valor, two_valor : one_valor * two_valor
+
+def multi():
+    return lambda one_valor, two_valor : one_valor * two_valor
+print(multi(55, 1000))
+
+########### funciones de orden superior ######
+
 ### lista de compañeros en una lista
 def obtener_compa(cantidad):
     compañeros = []
