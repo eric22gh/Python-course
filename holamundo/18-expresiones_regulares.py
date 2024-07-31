@@ -1,8 +1,13 @@
+###### expresiones regulares; inpecionar si una cadena de texto tiene cosas.
+
 import re 
 
 texto = " hola eric, como esta.... este es mi profesor numero 1 _"
 resultado = re.search("hola", texto) # encontrar palabras dentro del texto.
-print(resultado)    
+print(resultado)   
+
+res = re.match("mi", texto)
+print(res)
 
 resultado1 = re.findall("hola", texto) # encontra todos los holas
 print(resultado1)
