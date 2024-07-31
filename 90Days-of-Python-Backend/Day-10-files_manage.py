@@ -139,3 +139,5 @@ with open(nombre_archivo,"w") as eric:
             eric.write(texto) # todas las operaciones de escritura tienen que estar en el bloque with.
         else:
             print(escribir)
+
+####### los siguientes ejercicios hacerlo con pandas y jsonS
