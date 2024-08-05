@@ -30,3 +30,5 @@ print(resultado4)
 resultado5 = re.findall(r"\s", texto) # encontrar espacios, tabs, saltos de linea
 print(resultado5)
 
+email = "ferali-eh@gmail.e"
+print(re.findall(r"\D", email))
