@@ -9,8 +9,13 @@ print(resultado)
 res = re.match("mi", texto)
 print(res)
 
+res = re.split("mi", texto)
+print(res)
+
 resultado1 = re.findall("hola", texto) # encontra todos los holas
 print(resultado1)
+
+print(re.sub("como", "hola", texto)) # como por hola a la hora de imprimir
 
 #####buscar digitos numericos
 resultado2 = re.findall(r"\d", texto) # encontra numeros en el texto
