@@ -30,7 +30,7 @@ print(respuesta.json())
 
 import my_module as arithmetics
 
-print(arithmetics.sumvalue(22, 87))
+print(arithmetics.sumvalue(22, 87, 5))
 
 
 
