@@ -12,14 +12,14 @@
 
 frutas = ["manzana", "banana", "cereza"]
 for fruta in frutas:
-    print(fruta)  # Imprime cada fruta en la lista
+    print(fruta)  
 # El bucle for itera sobre cada elemento en la lista frutas e imprime cada uno de ellos.
 
-#La función range() se utiliza a menudo para generar una secuencia de números. cuando necesitas repetir algo un número específico de veces.
+#La función range() se utiliza a menudo para generar una secuencia de números.
 for i in range(5):
     print(i)  # Imprime números del 0 al 4
 
-# for puede tener una cláusula else. El bloque else se ejecuta cuando el bucle se completa normalmente (es decir, no se interrumpe con break).
+# for puede tener una cláusula else. El bloque else se ejecuta cuando el bucle se completa normalmente.
 # Ejemplo de bucle for con else
 for i in range(5):
     print(i)
@@ -47,26 +47,22 @@ else:
 ###############
 
 # Interrupciones de Bucle: pueden controlar el flujo de los bucles utilizando las declaraciones break y continue.
-
 # break termina el bucle actual de inmediato.
 
-for i in range(10): # a for no hay que ponerle contador
+for i in range(10): # for no lleva contador
     if i == 5:
         break  # Sale del bucle cuando i es 5
     print(i)  # Imprime números del 0 al 4
 # En este ejemplo, el bucle for se interrumpe cuando i es igual a 5, por lo que solo se imprimen los números del 0 al 4.
 
 # La declaración continue salta a la siguiente iteración del bucle.
-
 # Ejemplo de uso de continue
 for i in range(10):
     if i == 5:
         continue  # Salta el resto del bucle cuando i es 5
     print(i)  # Imprime números del 0 al 9 excepto 5
 
-#######################################
-
-# Ejercicios
+################ Ejercicios
 
 # Ejercicio 1: Escribe un programa que imprima los números del 1 al 10 usando un bucle for.
 for numeros in range(1,11):
@@ -134,3 +130,86 @@ print("El factorial de", user, "es:", factory)
 import math
 factorial = math.factorial(user)
 print(factorial)
+
+# Ejercicio 11: Imprimir Números en Rango
+# Escribe un programa que imprima los números del 5 al 15 usando un bucle for.
+for num in range(5, 16):
+    print(num)
+
+# Ejercicio 12: Imprimir Números Descendentes
+# Escribe un programa que imprima los números del 20 al 10 en orden descendente usando un bucle while.
+num = 20
+while num >= 10:
+    print(num)
+    num -= 1
+
+# Ejercicio 13: Imprimir Tabla de Multiplicar
+# Escribe un programa que imprima la tabla de multiplicar del 7 usando un bucle for.
+tabla = 7
+for number in range(1, 12):
+    print(tabla * number)
+
+# Ejercicio 14: Imprimir Valores Pares en Lista
+# Escribe un programa que imprima solo los valores pares de una lista de números usando un bucle for.
+pares = 2
+for numeros in range(1, 20):
+    if numeros % pares == 0:
+        print(f"este numero: {numeros} es par")
+
+# Ejercicio 15: Contar Números Impares
+# Escribe un programa que cuente cuántos números impares hay en una lista de números usando un bucle while.
+pares = 2
+impares = []
+for lista_inpar in range(1, 30):
+    if lista_inpar % pares != 0:
+        impares.append(lista_inpar)
+conteo = len(impares)
+print(f"el numero de impares en la lista de numeros es: {conteo}")
+
+nume = 0
+impar = []
+pares = 2
+while nume < 30:
+    nume += 1
+    if nume % pares != 0:
+        impar.append(nume)
+cantidad = len(impar)
+print(f"el numero de impares en la lista de numeros es: {cantidad}")
+
+# Ejercicio 16: Imprimir Cadenas en Lista
+# Escribe un programa que imprima cada cadena en una lista de cadenas usando un bucle for.
+lista = ["eric", "edwards", "hernandez"]
+for cadena in lista:
+    print([cadena])
+
+# Ejercicio 17: Sumar Números en Lista
+# Escribe un programa que calcule la suma de todos los números en una lista usando un bucle while.
+numero = 0
+suma_total = 0
+while numero < 10:
+    numero += 1
+    suma_total += numero 
+print(suma_total)
+
+# Ejercicio 18: Encontrar Mínimo en Lista
+# Escribe un programa que encuentre el valor mínimo en una lista de números usando un bucle for.
+lista_min = []
+for numero in range(5, 45):
+    lista_min.append(numero)
+numero_minimo = min(lista_min)
+print(numero_minimo)
+
+# Ejercicio 19: Generar Secuencia de Fibonacci
+# Escribe un programa que genere y imprima los primeros 10 números de la secuencia de Fibonacci usando un bucle while.
+a, b = 0, 1
+n = 0
+while n < 10:
+    print(a)
+    a, b = b, a + b
+    n += 1
+
+# Ejercicio 20: Verificar Número Primo
+# Escribe un programa que verifique si un número ingresado por el usuario es primo usando un bucle for.
+for i in range(1, 20):
+    if i % 2 == 0:
+        print(f"este es un numero primo: {i}")
