@@ -21,158 +21,158 @@
 
 # Acceso a elementos
 frutas = ["manzana", "banana", "cereza", "limon"]
-# print(frutas[0])  
-# print(frutas[1])  
-# print(frutas[2])  
-# print(frutas)
+print(frutas[0])  
+print(frutas[1])  
+print(frutas[2])  
+print(frutas)
 
-# # Agregar un elemento al final de la lista
-# frutas.append("durazno")
+# Agregar un elemento al final de la lista
+frutas.append("durazno")
+print(frutas) 
+
+# Eliminar un elemento específico
+frutas.remove("banana")
+print(frutas)  
+
+# elimina y devuelve el elemento en la posición especificada. Si no se especifica una posición, elimina y devuelve el último elemento.
+frutas = ["manzana", "banana", "cereza"]
+fruta_eliminada = frutas.pop(1)
+print(fruta_eliminada)  #
+print(frutas)  
+
+ultima_fruta = frutas.pop()
+print(ultima_fruta) 
+print(frutas)  
+
+# Ordenar la lista
+frutas.sort()
+print(frutas)  
+
+#invierte el orden de los elementos en la lista.
+frutas = ["manzana", "banana", "cereza"]
+frutas.reverse()
+print(frutas)  
+
+frutas.insert(1, "kiwi")  # Inserta "kiwi" en la posición 1
+print(frutas)  
+
+print(len(frutas)) # devuelve cuantos elementos hay en una lista
+
+#devuelve el número de veces que un elemento aparece en la lista.
+frutas = ["manzana", "banana", "cereza", "manzana"]
+print(frutas.count("manzana")) 
+
+#devuelve una copia superficial de la lista.
+frutas = ["manzana", "banana", "cereza"]
+frutas_copia = frutas.copy()
+print(frutas_copia) 
+
+# elimina todos los elementos de la lista.
+# frutas = ["manzana", "banana", "cereza"]
+# frutas.clear()
 # print(frutas) 
 
-# # Eliminar un elemento específico
-# frutas.remove("banana")
-# print(frutas)  
+# extiende la lista agregando todos los elementos de otra lista.
+frutas = ["manzana", "banana"]
+otras_frutas = ["cereza", "durazno"]
+frutas.extend(otras_frutas)
+print(frutas) 
 
-# # elimina y devuelve el elemento en la posición especificada. Si no se especifica una posición, elimina y devuelve el último elemento.
-# frutas = ["manzana", "banana", "cereza"]
-# fruta_eliminada = frutas.pop(1)
-# print(fruta_eliminada)  #
-# print(frutas)  
+#devuelve el índice del primer elemento con el valor especificado.
+frutas = ["manzana", "banana", "cereza"]
+print(frutas.index("banana"))  
 
-# ultima_fruta = frutas.pop()
-# print(ultima_fruta) 
-# print(frutas)  
+#Concatenar Listas
+otras_frutas = ["pera", "uva"]
+todas_las_frutas = frutas + otras_frutas
+print(todas_las_frutas) 
 
-# # Ordenar la lista
-# frutas.sort()
-# print(frutas)  
+# seccionar listas
+print(frutas[1:3]) 
 
-# #invierte el orden de los elementos en la lista.
-# frutas = ["manzana", "banana", "cereza"]
-# frutas.reverse()
-# print(frutas)  
+# verificar la existencia de un elemento
+print("manzana" in frutas)  
+print("banana" in frutas)  
 
-# frutas.insert(1, "kiwi")  # Inserta "kiwi" en la posición 1
-# print(frutas)  
+# iterar sobre una lista
+for fruta in frutas:
+    print(fruta)
 
-# print(len(frutas)) # devuelve cuantos elementos hay en una lista
+############ Ejercicios
+# Ejercicio 1: Crea una lista de tus verduras favoritas y muéstrala.
+verduras = ["papa", "camote", "pepino", "remolacha", "yuca"]
+print(verduras)
 
-# #devuelve el número de veces que un elemento aparece en la lista.
-# frutas = ["manzana", "banana", "cereza", "manzana"]
-# print(frutas.count("manzana")) 
+# Ejercicio 2: Añade una nueva elemento a la lista y muéstrala.
+verduras.append("tiquisque")
+print(verduras)
 
-# #devuelve una copia superficial de la lista.
-# frutas = ["manzana", "banana", "cereza"]
-# frutas_copia = frutas.copy()
-# print(frutas_copia) 
+verduras.insert(1, "calabaza")
+print(verduras)
 
-# # elimina todos los elementos de la lista.
-# # frutas = ["manzana", "banana", "cereza"]
-# # frutas.clear()
-# # print(frutas) 
+# Ejercicio 3: Elimina un elemento de la lista y muéstrala.
+verduras.remove("camote")
+print(verduras)
 
-# # extiende la lista agregando todos los elementos de otra lista.
-# frutas = ["manzana", "banana"]
-# otras_frutas = ["cereza", "durazno"]
-# frutas.extend(otras_frutas)
-# print(frutas) 
+verduras.pop(0)
+print(verduras)
 
-# #devuelve el índice del primer elemento con el valor especificado.
-# frutas = ["manzana", "banana", "cereza"]
-# print(frutas.index("banana"))  
+# Ejercicio 4: Ordena la lista de frutas alfabéticamente y muéstrala.
+verduras.sort()
+print(verduras)
 
-# #Concatenar Listas
-# otras_frutas = ["pera", "uva"]
-# todas_las_frutas = frutas + otras_frutas
-# print(todas_las_frutas) 
-
-# # seccionar listas
-# print(frutas[1:3]) 
-
-# # verificar la existencia de un elemento
-# print("manzana" in frutas)  
-# print("banana" in frutas)  
-
-# # iterar sobre una lista
-# for fruta in frutas:
-#     print(fruta)
-
-# ############ Ejercicios
-# # Ejercicio 1: Crea una lista de tus verduras favoritas y muéstrala.
-# verduras = ["papa", "camote", "pepino", "remolacha", "yuca"]
-# print(verduras)
-
-# # Ejercicio 2: Añade una nueva elemento a la lista y muéstrala.
-# verduras.append("tiquisque")
-# print(verduras)
-
-# verduras.insert(1, "calabaza")
-# print(verduras)
-
-# # Ejercicio 3: Elimina un elemento de la lista y muéstrala.
-# verduras.remove("camote")
-# print(verduras)
-
-# verduras.pop(0)
-# print(verduras)
-
-# # Ejercicio 4: Ordena la lista de frutas alfabéticamente y muéstrala.
-# verduras.sort()
-# print(verduras)
-
-# # Ejercicio 5: Define una lista de números y calcula su suma.
-# numeros = [1, 22, 56, 60, 100]
-# suma = 0
-# for num in numeros:
-#     suma +=  num
-# print(suma)
+# Ejercicio 5: Define una lista de números y calcula su suma.
+numeros = [1, 22, 56, 60, 100]
+suma = 0
+for num in numeros:
+    suma +=  num
+print(suma)
     
-# # Ejercicio 6: Define una lista de números y encuentra el número máximo.
-# numeross = [1, 22, 2000, 80, 56, 60, 100, 1000]
-# for z in numeross:
-#     print(z)
-# eric = max(numeross)
-# print(eric)
+# Ejercicio 6: Define una lista de números y encuentra el número máximo.
+numeross = [1, 22, 2000, 80, 56, 60, 100, 1000]
+for z in numeross:
+    print(z)
+eric = max(numeross)
+print(eric)
 
-# # Ejercicio 7: Define una lista de números y encuentra el número mínimo.
-# numeross1 = [1, 22, 2000, 80, 56, 60, 100, 1000]
-# for a in numeross1:
-#     print(a)
-# minimo = min(numeross1)
-# print(minimo)
+# Ejercicio 7: Define una lista de números y encuentra el número mínimo.
+numeross1 = [1, 22, 2000, 80, 56, 60, 100, 1000]
+for a in numeross1:
+    print(a)
+minimo = min(numeross1)
+print(minimo)
 
-# # Ejercicio 8: Define una lista de números y calcula su promedio.
-# numeross2 = [1, 22, 2000, 80, 56, 60, 100, 1000]
-# suma = sum(numeross2)
-# promedio = suma / len(numeross2)
-# print(promedio)
+# Ejercicio 8: Define una lista de números y calcula su promedio.
+numeross2 = [1, 22, 2000, 80, 56, 60, 100, 1000]
+suma = sum(numeross2)
+promedio = suma / len(numeross2)
+print(promedio)
 
-# # Ejercicio 9 (Teoría): ¿Qué es una lista y cómo se diferencia de una tupla en Python?
-# # las listas y la tuplas pueden guardar valores de tipo: int, float, str, bool, 
-# # sin embargo las listas son mutables y las tuplas son inmutables(no se pueden modificar)
+# Ejercicio 9 (Teoría): ¿Qué es una lista y cómo se diferencia de una tupla en Python?
+# las listas y la tuplas pueden guardar valores de tipo: int, float, str, bool, 
+# sin embargo las listas son mutables y las tuplas son inmutables(no se pueden modificar)
 
-# # Ejercicio 10 (Práctica): Escribe un programa que pida al usuario varios nombres y los almacene en una lista. 
-# # Luego, ordena la lista alfabéticamente y muéstrala.
-# name = [input("escribe la palabra:"), input("escribe la segunda palabra:"), input("escribe la tercera palabra:"), input("escribe la cuarta palabra:")]
-# print(name)
-# name.sort()
-# print(name)
+# Ejercicio 10 (Práctica): Escribe un programa que pida al usuario varios nombres y los almacene en una lista. 
+# Luego, ordena la lista alfabéticamente y muéstrala.
+name = [input("escribe la palabra:"), input("escribe la segunda palabra:"), input("escribe la tercera palabra:"), input("escribe la cuarta palabra:")]
+print(name)
+name.sort()
+print(name)
 
-# ####### o
-# names = []
-# while True:
-#     nombre = input("Ingresa un nombre (o presiona la tecla espacio para terminar): ")
-#     if nombre == " ":
-#         break # darle la tecla espacio para terminar el bucle
-#     names.append(nombre)
+####### o
+names = []
+while True:
+    nombre = input("Ingresa un nombre (o presiona la tecla espacio para terminar): ")
+    if nombre == " ":
+        break # darle la tecla espacio para terminar el bucle
+    names.append(nombre)
 
-# dato = names.sort()
-# print(dato)
-# print("Nombres ordenados alfabéticamente:")
-# for nombre in names:
-#     print(nombre) # imprimirlo sin corchetes
-# print(names)
+dato = names.sort()
+print(dato)
+print("Nombres ordenados alfabéticamente:")
+for nombre in names:
+    print(nombre) # imprimirlo sin corchetes
+print(names)
 
 # Ejercicio 11: Contar Elementos
 # Crea una lista con números enteros y cuenta cuántos elementos son mayores a 10.
