@@ -14,6 +14,7 @@
 
 # Crear una lista de elevados de números del 1 al 10
 elevados = [x**2 for x in range(1, 11)]
+cubo = [x ** 3 for x in range(1, 10)]
 print(elevados)  
 
 multi = [r*3 for r in range(1, 5)] # hace una lista de 1 al 5 y multiplica cada elemento de la lista x 3
@@ -21,7 +22,8 @@ print(multi)
 
 # Filtrar números pares de una lista
 pares = [x for x in range(1, 11) if x % 2 == 0]
-print(pares)  # Salida: [2, 4, 6, 8, 10]
+impares = [i for i in range(1, 15) if i % 2 != 0]
+print(pares)  
 
 # filtrar numeros impares de una lista
 impar = [i for i in range(1,24) if i % 2 == 1]
@@ -37,9 +39,8 @@ print(par)
 # Generador simple que produce números del 1 al 5
 def generador():
     for i in range(1, 6):
-        yield i  # devuelve cada número del 1 al 5 uno por uno
+        yield i  # devuelve los números del 1 al 5 
 
-# Usar el generador
 gen = generador()
 for numero in gen:
     print(numero)  
@@ -55,7 +56,7 @@ print(z)
 
 # Ejercicio 3: Usa comprensión de listas para crear una lista de las primeras letras de cada palabra en una lista de palabras.
 lost = ["eric", "alex", "petras", "athenas"]
-list = [l[0] for l in lost if l]
+list = [l[0] for l in lost if l] # [0] es la primera letra de cada vez que se itera l
 print(list)
 
 # Ejercicio 4: Usa comprensión de listas para filtrar los números mayores a 5 de una lista de números.
@@ -63,20 +64,12 @@ n = [u for u in range(1,10) if u > 5 ]
 print(n)
 
 # Ejercicio 5: Define un generador que produzca los primeros 10 números de Fibonacci. 
-# def fibonacci():
-#     for z in range(1,11):
-#         z += 2
-#         yield z
-# fibo = fibonacci()
-# for numb in fibo:
-#     print(numb)
 def fibonacci():
-    a, b = 0, 1
+    a, b = 0, 1 # valores
     for _ in range(10):
         yield a
-        a, b = b, a + b
+        a, b = b, a + b # formula de fibo
 
-# Ejemplo de uso
 fibo = fibonacci()
 for numb in fibo:
     print(numb)
@@ -142,3 +135,65 @@ def generador_primos():
 primos = generador_primos()
 for primo in primos:
     print(primo)
+
+# Ejercicio 11: Usa comprensión de listas para crear una lista con los cubos de los números del 1 al 10.
+cubos = [n ** 3 for n in range(1, 11)]
+print(cubos)
+
+# Ejercicio 12: Usa comprensión de listas para crear una lista con los números divisibles por 3 entre 1 y 30.
+por_3 = [x for x in range(1, 31) if x % 3 == 0]
+print(por_3)
+
+# Ejercicio 13: Usa comprensión de listas para crear una lista que contenga la longitud de cada palabra en una lista de palabras.
+palabra = ["eric", "arbol", "pez", "rojo"]
+conteo = [len(p) for p in palabra]
+print(conteo)
+
+# Ejercicio 14: Usa comprensión de listas para crear una lista de los números impares entre 10 y 50.
+imp = [i for i in range(10, 50) if i % 2 != 0] # crean la lista en el momento y es mejor que una lista creada manualmente porque la misma guarda datos en memoria.
+print(imp)
+
+# Ejercicio 15: Define un generador que produzca los múltiplos de 5 del 1 al 50.
+def multi():
+    for i in range(1, 51):
+        if i % 5 == 0:
+            yield i # permite que los valores se generen a medida que son necesarios, lo que ahorra memoria comparado con una lista.
+dato = multi()
+for multiplo in dato:
+    print(multiplo)
+# m = [n for n in dato] # darlos en una lista
+# print(m) 
+
+# Ejercicio 16: Define un generador que produzca los cuadrados de los números impares entre 1 y 20.
+def cuadrado():
+    for cuadrado in range(1, 20):
+        if cuadrado % 2 != 0:
+            yield cuadrado ** 2
+dato = cuadrado()
+for x in dato:
+    print(x)
+
+# Ejercicio 17: Define un generador que produzca los caracteres de una cadena al revés, uno por uno.
+def alrevez(cadena):
+    for caracter in cadena[::-1]:
+        yield caracter
+dato = alrevez("eric")
+for x in dato:
+    print(x)
+
+# Ejercicio 18: Usa comprensión de listas para crear una lista de los números que son tanto divisibles por 2 como por 3 entre 1 y 100.
+numero = [n for n in range(1, 100) if n % 2 == 0 and n % 3 == 0]
+print(numero)
+
+# Ejercicio 19: Define un generador que produzca las primeras 6 potencias de 2.
+def potencias():
+    for i in range(6):
+        yield i ** 2
+dato = potencias()
+for x in dato:
+    print(x)
+
+# Ejercicio 20: Usa comprensión de listas para filtrar las palabras que tienen más de 4 letras en una lista de palabras.
+frutas = ["manzana", "banana", "cereza", "limon", "pera"]
+palabras = [p for p in frutas if len(p) > 4 ]
+print(palabras)
