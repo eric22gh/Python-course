@@ -212,3 +212,244 @@ guitar.tocar("thhhhhh")
 
 piane = Piano("piane")
 piane.tocar("fhhhhhhhhs")
+
+# Ejercicio 11: Define una clase base Mascota con atributos nombre y edad. Luego, define una clase derivada Perro que tenga 
+# un método adicional jugar que imprima un mensaje usando el nombre de la mascota.
+class Mascota():
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad 
+        pass
+class Perro(Mascota):
+    def __init__(self, nombre, edad):
+        super().__init__(nombre, edad)
+    def jugar(self):
+        print(f"{self.nombre} está jugando y tiene {self.edad} años.")
+
+# instancia o objeto de Perro
+dato = Perro("toby", 10)
+dato.jugar()
+
+# Ejercicio 12: Crea una clase base Persona con un método hablar que imprima "Hablando...". Luego, crea una clase derivada 
+# Profesor que sobrescriba el método hablar para que también mencione la materia que enseña.
+class Persona():
+    def __init__(self, nombre):
+        self.nombre = nombre
+        pass
+
+    def hablar(self):
+        print(f"esta persona: {self.nombre} hablando")
+
+class Profesor(Persona):
+    def __init__(self, nombre, materia):
+        super().__init__(nombre)
+        self.materia = materia
+    def hablar(self):
+        super().hablar()  # Llamar al método de la clase  y que se impriman los 2 textos( clase base y herededad)
+        print(f"Además, está enseñando la materia de {self.materia}.")
+
+dato = Profesor("carlos", "ciencias")    
+dato.hablar() 
+
+# Ejercicio 13: Define una clase base Vehiculo con atributos tipo y marca. Luego, crea dos clases derivadas, 
+# Motocicleta y Coche, que añadan un atributo velocidad_maxima y sobrescriban un método mostrar_informacion.
+class Vehiculo():
+    def __init__(self, tipo, marca):
+        self.tipo = tipo
+        self.marca = marca
+
+    def mostrar_informacion(self):
+        print(f"Vehículo tipo: {self.tipo}, marca: {self.marca}")
+
+class Motocicleta(Vehiculo):
+    def __init__(self, marca, velocidad_maxima):
+        super().__init__("Motocicleta", marca)
+        self.velocidad_maxima = velocidad_maxima
+
+    def mostrar_informacion(self):
+        print(f"Motocicleta marca: {self.marca}, velocidad máxima: {self.velocidad_maxima} km/h")
+
+class Coche(Vehiculo):
+    def __init__(self, marca, velocidad_maxima):
+        super().__init__("Coche", marca) # cuando el atributo es fijo se puede poner en strings
+        self.velocidad_maxima = velocidad_maxima
+
+    def mostrar_informacion(self):
+        print(f"Coche marca: {self.marca}, velocidad máxima: {self.velocidad_maxima} km/h")
+
+moto = Motocicleta("Yamaha", 350)
+moto.mostrar_informacion()
+
+coche = Coche("Toyota", 220)
+coche.mostrar_informacion()
+
+vehiculo = Vehiculo("Bicicleta", "GT")
+vehiculo.mostrar_informacion()
+
+# Ejercicio 14: Crea una clase base FiguraGeometrica con un método calcular_area que devuelva 0. Luego, 
+# define dos clases derivadas: Cuadrado y Triangulo. Cada una debe sobrescribir el método calcular_area con la fórmula adecuada.
+from abc import ABC, abstractmethod
+class FiguraGeometrica(ABC):
+    def __init__(self, medida):
+        self.medida = medida
+        pass
+    @abstractmethod
+    def calcular_area(self):
+        return 0
+
+class Cuadrado(FiguraGeometrica):
+    def __init__(self, medida):
+        super().__init__(medida)
+
+    def calcular_area(self):
+        return f"el area del cuadrado es: {self.medida ** 2}"
+
+class Triangulo(FiguraGeometrica):
+    def __init__(self, medida, altura):
+        super().__init__(medida)
+        self.altura = altura
+
+    def calcular_area(self):
+        area_triangulo = (self.medida * self.altura) / 2 
+        return f"el area del triangulo es: {area_triangulo:.0f}"
+
+dato = Cuadrado(5)
+print(dato.calcular_area())
+dato1 = Triangulo(5, 7)
+print(dato1.calcular_area())
+
+# Ejercicio 15: Define una clase base Electrodomestico con atributos marca y modelo. Luego, crea una clase derivada Lavadora 
+# que añada un atributo capacidad y sobrescriba un método mostrar_detalle para incluir la capacidad.
+class Electrodomestico():
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+    @abstractmethod
+    def mostrar_detalle(self):
+        return f"este es la info de este electrodimestico marca: {self.marca} y modelo: {self.modelo}"
+        pass
+class Lavadora(Electrodomestico):
+    def __init__(self, marca, modelo, capacidad):
+        super().__init__(marca, modelo)
+        self.capacidad = capacidad
+
+    def mostrar_detalle(self):
+        return f"{super().mostrar_detalle()}, y capacidad: {self.capacidad} kilos" # evitar la reutilizacion del codigo de return arriba
+
+dato = Lavadora("oster", 1998, 100)
+print(dato.mostrar_detalle())
+
+# Ejercicio 16: Crea una clase base DispositivoElectronico con un método encender que imprima un mensaje. Luego, define dos clases derivadas, 
+# Telefono y Ordenador, que sobrescriban el método encender para mostrar mensajes específicos de cada dispositivo.
+class DispositivoElectronico():
+    def __init__(self, nombre):
+        self.nombre = nombre
+        pass
+
+    def encender(self):
+        print(f"El dispositivo {self.nombre} se está encendiendo.")
+
+class Telefono(DispositivoElectronico):
+    def __init__(self, nombre):
+        super().__init__(nombre)
+
+    def encender(self):
+        print(f"El teléfono {self.nombre} está encendido.")
+class Ordenador(DispositivoElectronico):
+    def __init__(self, nombre):
+        super().__init__(nombre)
+
+    def encender(self):
+        print(f"El ordenador {self.nombre} está encendido.")
+
+dato2 = Telefono("Samsung Galaxy")
+dato2.encender()
+dato2 = Ordenador("Windows PC")
+dato2.encender()
+
+# Ejercicio 17: Define una clase base Producto con atributos nombre y precio. Luego, define una clase derivada Libro 
+# que añada un atributo autor y sobrescriba el método mostrar_informacion para incluir el autor.
+class Producto():
+    def __init__(self, nombre, precio):
+        self.nombre = nombre
+        self.precio = precio
+    def mostrar_informacion(self):
+        print(f"Producto: {self.nombre}, Precio: {self.precio}.")
+        pass
+class Libro(Producto):
+    def __init__(self, nombre, precio, autor):
+        super().__init__(nombre, precio)
+        self.autor = autor
+    def mostrar_informacion(self):
+        print(f"Este libro tiene esta informacion: nombre: {self.nombre}, precio: {self.precio} y su autor: {self.autor}")
+    
+dato1 = Libro("El cuervo", 19500, "Gabriel García Márquez")
+dato1.mostrar_informacion()
+
+# Ejercicio 18: Crea una clase base Transporte con un atributo capacidad. Luego, define dos clases derivadas, Autobus y Tren, 
+# que sobrescriban un método mostrar_capacidad para mostrar la capacidad con un mensaje diferente en cada caso.
+class Transporte():
+    def __init__(self, capacidad):
+        self.capacidad = capacidad
+    def mostrar_capacidad(self):
+        print(f"Capacidad de transporte: {self.capacidad} pasajeros.")
+        pass
+
+class Autobus(Transporte):
+    def __init__(self, capacidad):
+        super().__init__(capacidad)
+
+    def mostrar_capacidad(self):
+        print(F"Esta es la capacidad completa de este autobus: {self.capacidad} pasajeros")
+
+class Tren(Transporte):
+    def __init__(self, capacidad):
+        super().__init__(capacidad)
+
+    def mostrar_capacidad(self):
+        print(F"Esta es la capacidad completa de este Tren: {self.capacidad} pasajeros")
+
+dato = Autobus(52)
+dato.mostrar_capacidad()
+dato = Tren(5)
+dato.mostrar_capacidad()
+
+# Ejercicio 19: Define una clase base Animal con un método hacer_sonido. Luego, crea dos clases derivadas, Vaca y Caballo, 
+# que sobrescriban el método hacer_sonido con un sonido específico para cada animal.
+class Animal():
+    def __init__(self, animal):
+        self.animal = animal
+    def hacer_sonido(self):
+        print(F"este animal: {self.animal} hace un sonido")
+        pass
+
+class Vaca(Animal):
+    def __init__(self, animal):
+        super().__init__(animal) 
+    def hacer_sonido(self):
+        print(f"este animal: {self.animal} hace muuuu")
+
+class Caballo(Animal):
+    def __init__(self, animal):
+        super().__init__(animal) 
+    def hacer_sonido(self):
+        print(f"este animal: {self.animal} hace jhhhh") 
+
+dato5 = Vaca(" BU") 
+dato5.hacer_sonido()
+
+# Ejercicio 20: Crea una clase base Herramienta con atributos tipo y material. Luego, define una clase derivada Martillo 
+# que sobrescriba un método golpear que imprima un mensaje usando el tipo y material de la herramienta.
+class Herramienta():
+    def __init__(self, tipo, material):
+        self.tipo = tipo
+        self.material = material
+        pass
+class Martillo(Herramienta):
+    def __init__(self, tipo, material):
+        super().__init__(tipo, material)
+
+    def golpear(self):
+        print(f"Se está usando un martillo de tipo: {self.tipo}, hecho de: {self.material} para golpear.")
+dato = Martillo("Largo", "metal")
+dato.golpear()
