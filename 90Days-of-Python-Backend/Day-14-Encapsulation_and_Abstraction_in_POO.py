@@ -23,7 +23,7 @@
 class CuentaBancaria:
     def __init__(self, titular, saldo):
         self.titular = titular          # Atributo público
-        self.__saldo = saldo            # Atributo privado
+        self.__saldo = saldo            # Atributo protegido _ atributo privado
 
     def depositar(self, cantidad):
         if cantidad > 0:
@@ -34,13 +34,13 @@ class CuentaBancaria:
             self.__saldo -= cantidad        # Modifica el saldo interno
 
     def obtener_saldo(self):
-        return self.__saldo                # Proporciona acceso al saldo
+        return self.__saldo                
 
-# Uso de encapsulación
+# encapsulación
 cuenta = CuentaBancaria("Alice", 1000)
-cuenta.depositar(500)                  # Deposita 500
-cuenta.retirar(200)                    # Retira 200
-print(cuenta.obtener_saldo())          # Salida: 1300
+cuenta.depositar(500)                  
+cuenta.retirar(200)                    
+print(cuenta.obtener_saldo())          
 
 ############### 
 
@@ -54,15 +54,15 @@ class Vehiculo:
 
 class Coche(Vehiculo):
     def __init__(self, marca, modelo, puertas):
-        super().__init__(marca, modelo)   # Llama al constructor de la clase base
-        self.__puertas = puertas           # Atributo privado
+        super().__init__(marca, modelo)   # Llamar al constructor de la clase base
+        self.__puertas = puertas           
 
     def mostrar_info(self):
         return f"{super().mostrar_info()} - {self.__puertas} puertas"
 
-# Uso de encapsulación y abstracción
+# encapsulación y abstracción
 mi_coche = Coche("Toyota", "Corolla", 4)
-print(mi_coche.mostrar_info())         # Salida: Toyota - Corolla - 4 puertas
+print(mi_coche.mostrar_info())        
 
 # ############### ejerciios
 # Ejercicio 1: Define una clase Persona con atributos públicos nombre y edad, y un atributo privado __saldo. 
@@ -218,3 +218,215 @@ estado = CuentaBancaria("Gregorio", 520000)
 print(estado.depositar())
 print(estado.retirar())
 print(estado.obtener_el_saldo())
+
+# Ejercicio 11: 
+# Define una clase Libro con atributos públicos título y autor, y un atributo privado __precio.
+# Añade métodos para modificar y obtener el precio.
+class Libro():
+    def __init__(self, titulo, autor, precio):
+        self.titulo = titulo
+        self.autor = autor
+        self.__precio = precio
+    
+    def modificar(self, descuento):
+        if 0 <= descuento <= 1:
+            monto = self.__precio * descuento
+            self.__precio -= monto
+            return f"Este es el precio modificado del libro: {self.__precio:.0f} colones del autor: {self.autor}"
+          
+        else:
+            return "Descuento no válido"
+    
+    def obtener(self):
+        return f"El libro '{self.titulo}' tiene un precio de {self.__precio} colones"
+    
+dato1 = Libro("el cuervo", "Gabriel", 25000)
+print(dato1.modificar(0.15))
+dato2 = Libro("cronicas","homero", 20000)
+print(dato2.obtener())
+
+# Ejercicio 12:
+# Crea una lista de objetos Libro y escribe un programa que muestre el precio de cada libro usando los métodos definidos.
+lista = [
+    Libro("el cuervo", "Gabriel", 25000),
+    Libro("Monster", "Rodrigo perez", 24000),
+    Libro("Cronicas", "Gabriel marquez", 20000),
+    Libro("Homero", "socrates", 26000),
+    Libro("El principito", "frida khalo", 21000)
+]
+for precio in lista:
+    print(precio.obtener())
+
+# Ejercicio 13:
+# Define una clase Estudiante con atributos públicos nombre y edad, y un atributo privado __nota.
+# Añade métodos para modificar y obtener la nota.
+class Estudiante():
+    def __init__(self, nombre, edad, nota):
+        self.nombre = nombre
+        self.edad = edad
+        self.__nota = nota
+    
+    def modificar(self, puntos):
+        if puntos < self.__nota:
+            self.__nota -= puntos
+        else:
+            self.__nota = 0  # Evitar que la nota sea negativa
+        return F"Esta es la nota modificada: {self.__nota}"
+    
+    def obtener(self):
+        return f"Alumno: {self.nombre} esta es su nota: {self.__nota}"
+    
+alumno1 = Estudiante("eric", 25, 89)
+print(alumno1.modificar(12))
+alumno2 = Estudiante("alex", 22, 98)
+print(alumno2.obtener())
+
+# Ejercicio 14:
+# Crea una clase Banco con atributos privados __nombre y __cuentas (una lista de objetos de tipo CuentaBancaria).
+# Añade métodos para agregar cuentas y mostrar el saldo de todas las cuentas.
+class Banco():
+    def __init__(self, nombre, cuentas, saldo):
+        self.__nombre = nombre
+        self.__cuentas = cuentas
+        self.__saldo = saldo
+
+    def agregar_cuentas(self):
+        lista1.append(Banco(self.__nombre, self.__cuentas, self.__saldo))
+
+    def mostrar(self):
+        return f"Este es el saldo: {self.__saldo} colones de esta cuenta: {self.__nombre}"
+        
+lista1 = [
+    Banco("eric", "2568-6589-2", 250000),
+    Banco("alice", "2568-6500-6", 19500),
+    Banco("marcos", "2568-0001-2", 200000)
+]
+dato1 = Banco("beto", "5878-2345-5", 30000) 
+dato1.agregar_cuentas()  
+
+for saldo in lista1:
+    print(saldo.mostrar())
+        
+# Ejercicio 15:
+# Define una clase Casa con atributos públicos dirección y tamaño, y un atributo privado __precio.
+# Añade métodos para modificar y obtener el precio.
+class Casa():
+    def __init__(self, direccion, tamaño, precio):
+        self.direccion = direccion
+        self.tamaño = tamaño
+        self.__precio = precio
+    def modificar(self, devaluacion):
+        monto = self.__precio * devaluacion
+        self.__precio -= monto
+        return F"Este es el precio modificado con la devaluacion del area: {self.__precio:.0F} colones"
+    def obtener(self):
+        return f"Este es el precio: {self.__precio:.0F} colones de esta vivienda con tamaño de: {self.tamaño}"
+    
+casa1 = Casa("Ciudad de nueva york, contiguo al central park","100mts", 1000000)
+print(casa1.modificar(0.15))
+print(casa1.obtener()) # esto es polimorfismo, el mismo objeto reacciona diferente segun el metodo
+
+# Ejercicio 16:
+# Define una clase Juego con atributos públicos título y género, y un atributo privado __rating.
+# Añade métodos para modificar y obtener el rating.
+class Juego():
+    def __init__(self, titulo, genero, rating):
+        self. titulo = titulo
+        self.genero = genero
+        self.__rating = rating
+    
+    def modificar(self, puntos_negativos):
+        self.__rating -= puntos_negativos
+        if self.__rating >= 0:
+            return f"Este es el nuevo ranting de este juego despues de la actualizacion es: {self.__rating}"
+        else: 
+            return F"El ranking no puede tener un numero negativo"
+    
+    def obtener(self):
+        return f"Aqui tenemos el ranking: {self.__rating} de este juego: {self.titulo}"
+    
+juego1 = Juego("until Dawn", "suspenso", 10)
+print(juego1.modificar(2))
+print(juego1.obtener())
+
+# Ejercicio 17:
+# Crea una lista de objetos Juego y escribe un programa que muestre el rating de cada juego usando los métodos definidos.
+lista_juegos = [
+    Juego("Leaf for dead", "Zombies", 7),
+    Juego("Horizon", "Aventura", 2),
+    Juego("Mortal Kombat", "Peleas", 6),
+    Juego("DB Budokai", "Peleas", 5),
+    Juego("the evil within", "Terror", 9)
+]
+for Posicion in lista_juegos:
+    print(Posicion.obtener())
+
+# Ejercicio 18:
+# Define una clase TarjetaCredito con atributos públicos número y titular, y un atributo privado __limite.
+# Añade métodos para modificar y obtener el límite de crédito.
+class TarjetaCredito():
+    def __init__(self, numero, titular, limite):
+        self.numero = numero
+        self.titular = titular
+        self.__limite = limite
+    
+    def modificar(self, ganancia_banco):
+        if self.__limite -ganancia_banco >= 0: # validacion, para que no de negativo
+            self.__limite -= ganancia_banco
+            return f"Este es su limite de credito despues de la modificacion: {self.__limite}"
+        else:
+            return "No es posible modificar el limite, el valor resultante es negativo."
+    
+    def obtener(self):
+        return f"Este es su credito total: {self.__limite} colones"
+
+tarjeta = TarjetaCredito("1236-5698-8975", "Eric Edwards", 250000)
+print(tarjeta.modificar(23000))
+print(tarjeta.obtener())
+
+# Ejercicio 19:
+# Crea una clase Empresa con atributos privados __nombre y __salarios (una lista de objetos Empleado).
+# Añade métodos para agregar empleados y mostrar los salarios de todos los empleados.
+class Empresa():
+    def __init__(self):
+        self.__empleados = []
+
+    def agregar_empleados(self, nombre, salario):
+        self.__empleados.append(Empleado(nombre, salario))
+
+    def mostrar_salarios(self):
+        for empleado in self.__empleados:
+            print(f"El empleado: {empleado.nombre} tiene un salario de: {empleado.salario} colones")
+
+class Empleado:
+    def __init__(self, nombre, salario):
+        self.nombre = nombre
+        self.salario = salario
+
+empresa = Empresa()
+empresa.agregar_empleados("Eric Edwards", 520000)
+empresa.agregar_empleados("Helen Brenes", 320000)
+empresa.agregar_empleados("Carlos Mora", 820000)
+empresa.mostrar_salarios()
+
+# Ejercicio 20:
+# Escribe un programa que defina una clase Dispositivo con atributos privados __marca, __precio y __modelo,
+# y métodos para modificar y obtener la información del dispositivo.
+class Dispositivo():
+    def __init__(self, marca, precio, modelo):
+        self.__marca = marca
+        self.__modelo = modelo
+        self.__precio = precio
+
+    def modificar(self, devaluacion):
+        if devaluacion > self.__precio:
+            return "La devaluación no puede ser mayor que el precio."
+        self.__precio -= devaluacion
+        return f"El nuevo precio después de la devaluación es: {self.__precio} colones."
+    
+    def obtener(self):
+        return f"Esta es la informacion de el siguiente dispositivo: {self.__marca}, modelo: {self.__modelo} y precio: {self.__precio}"
+    
+Dispositivo1 = Dispositivo("Samsung", 256000, "Galaxy L200")
+print(Dispositivo1.modificar(32000))
+print(Dispositivo1.obtener())
