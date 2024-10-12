@@ -8,7 +8,6 @@
 # Uso: Las tuplas son útiles para representar datos que no deben cambiar a lo largo del tiempo, como coordenadas, registros de datos, etc.
 
 # Fundamentos del Tema con Código
-
 # Crear y Acceder a Tuplas:
 coordenadas = (10, 20)
 print(coordenadas[0])  
@@ -38,18 +37,14 @@ print(tupla_concatenada.count(2))
 print(tupla_concatenada.index(4)) 
 
 ################# Tuplas con Funciones y Bucles:
-
-# Usar tuplas en funciones
 def calcular_area(base, altura):
     return base * altura
-
-# Tupla como argumento de función
 dimensiones = (5, 10)
 area = calcular_area(*dimensiones)
 print(area)  
 
 # Iterar sobre una lista de tuplas
-pares = [(1, 2), (3, 4), (5, 6)]
+pares = [(1, 2), (3, 4), (5, 6)] # lista de tuplas
 for (x, y) in pares:
     print(f"x: {x}, y: {y}")
 
@@ -59,7 +54,6 @@ tupla = tuple(lista)
 print(tupla)  
 lista_recuperada = list(tupla)
 print(lista_recuperada)  
-
 
 ############## desempaquetado 
 tupla = (10, 20, 30)
@@ -146,3 +140,94 @@ def mayores(personas):
             print(f"Esta perosona de nombre: {name} y de edad: {age} es mayor de 18 años")
 
 mayores(personas = (("alex", 52), ("eric", 15), ("greivin", 17), ("rad", 25), ("carlos", 30)))
+
+# Ejercicio 11: 
+# Crea una tupla con cinco números enteros y encuentra la suma de todos los elementos.
+import random
+tu = tuple(random.randint(1, 100)for t in range(5))
+suma_tupla = sum(tu)
+print(f"Tupla creada: {tu}")
+print(f"la suma total de todos los elementos de la tupla es: {suma_tupla}")
+
+# Ejercicio 12: 
+# Dada una tupla con números enteros, escribe un programa que imprima solo los números impares.
+#tupla_numeros = tuple(random.randint(1, 50)for n in range(10)if n % 2 != 0) # asi no se hace porque el condicional no afecta a la tupla si no que al rango de 10
+# no es recomendable juntar lista, tuplas de comprensiones con condicionales
+tupla_numeros = tuple(random.randint(1, 50)for n in range(10))
+numeros_impares = tuple(n for n in tupla_numeros if n % 2 != 0)
+print(f"Tupla: {tupla_numeros}")
+print(f"Números impares de la tupla: {numeros_impares}")
+
+# Ejercicio 13: 
+# Escribe una función que reciba dos tuplas y devuelva una nueva tupla que contenga los elementos 
+# de la primera tupla que no están en la segunda.
+def diferencia(tupla1, tupla2):
+    new = tuple(set(tupla1).difference(set(tupla2)))
+    return f"esta es la nueva tupla: {new}"
+dato = diferencia((1, 5, 6, 8, 78),(1, 5, 4, 8, 7))
+print(dato)
+
+# Ejercicio 14: 
+# Convierte una tupla de cadenas de texto en una sola cadena donde los elementos estén separados por comas.
+tupla_text = ("eric", "calvin", "edwards")
+cadenas = ", ".join(tupla_text)
+print(cadenas)
+
+# Ejercicio 15: 
+# Dada una tupla de números enteros, escribe una función que devuelva el promedio de sus elementos.
+def promedio(tupla_promedio):
+    if len(tupla_promedio) == 0:
+        return "La tupla está vacía, no se puede calcular el promedio."
+    divisor = len(tupla_promedio)
+    numero = sum(tupla_promedio)
+    resultado = numero / divisor
+    return f"El promedio de los elementos de la tupla es: {resultado:.1f}"
+dato = promedio(tuple(random.randint(1, 50) for n in range(10)))
+print(dato)
+
+# Ejercicio 16: 
+# Escribe un programa que encuentre el elemento más frecuente en una tupla de números.
+from collections import Counter
+numeros = (1, 5, 9, 89, 5, 22, 8)
+contador = Counter(numeros)
+comun, frecuencia = contador.most_common(1)[0] # cuenta los elementos y cuenta tambien la frecuencia...comun guarda el (1) y frecuencia guarda el [0]
+print(f"El elemento mas comun es: {comun}, con una frecuencia de {frecuencia}")
+
+# Ejercicio 17: 
+# Dada una tupla de tuplas (cada tupla contiene un nombre y una puntuación), ordena las tuplas en función de la puntuación de mayor a menor.
+tuplas_general =(
+    ("eric", 89),
+    ("helen", 9),
+    ("carlos", 22),
+    ("victor", 1),
+    ("alex", 2)
+)
+tupla_ordenada = sorted(tuplas_general, key=lambda x:x[1], reverse=True)
+print(tuple(tupla_ordenada))
+
+# Ejercicio 18: 
+# Crea una tupla con los nombres de varios países y muestra los países que empiezan con la letra 'E'.
+paises = ("españa", "brasil", "costa rica", "Eslovenia", "estonia", "nigeria")
+for letra in paises:
+   if letra[0].lower() == "e":
+        print(letra)
+
+# Ejercicio 19: 
+# Escribe una función que reciba una tupla de números y devuelva una nueva tupla con solo los números positivos.
+def positive(tupla):
+    positives = tuple(x for x in tupla if x > 0)
+    return positives
+dato = positive(tuple(random.randint(-50, 50) for n in range(8)))
+print(dato)
+
+# Ejercicio 20: 
+# Dada una lista de tuplas que contienen nombre y edad, convierte la lista en una tupla y encuentra 
+# la persona de mayor edad.
+lista_tuplas = [
+    ("eric", 56),
+    ("maria", 80),
+    ("helen", 42),
+    ("alex", 26)
+]
+persona_mayor = max(lista_tuplas, key= lambda x:x[1])
+print(persona_mayor)
