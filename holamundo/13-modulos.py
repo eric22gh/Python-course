@@ -14,7 +14,7 @@ restavalue(52,6,5)
 
 # sys: Proporciona acceso a variables y funciones relacionadas con el intérprete de Python.
 import sys
-print(sys.version)  # Imprime la versión de Python
+print(sys.version_info)  # Imprime la versión de Python
 
 
 # os: Proporciona una forma de interactuar con el sistema operativo.
