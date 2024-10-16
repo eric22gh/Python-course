@@ -8,7 +8,6 @@
 # Operaciones de conjuntos: Soportan operaciones matemáticas como unión(|), intersección(&) y diferencia.
 # Mutabilidad: Los conjuntos son mutables, pero sus elementos deben ser inmutables (por ejemplo, números, cadenas de texto, tuplas).
 
-
 # Crear un conjunto
 numeros = {1, 2, 3, 4, 5}
 
@@ -49,7 +48,6 @@ diferencia_simetrica = pares ^ {4, 6, 8, 10}
 print(diferencia_simetrica)  
 
 # Programa que tome dos listas y devuelva una lista de elementos únicos que están en ambas listas.
-
 def elementos_unicos(lista1, lista2):
     conjunto1 = set(lista1)
     conjunto2 = set(lista2)
@@ -62,7 +60,6 @@ resultado = elementos_unicos(lista1, lista2)
 print(resultado)  
 
 # función que reciba una cadena de texto y devuelva una lista con todos los caracteres únicos en la cadena.
-
 def caracteres_unicos(cadena):
     return list(set(cadena))
 
@@ -71,7 +68,6 @@ resultado = caracteres_unicos(cadena)
 print(resultado)  
 
 # Programa que tome una lista de números y devuelva True si hay elementos duplicados y False si todos son únicos.
-
 def hay_duplicados(lista):
     return len(lista) != len(set(lista))
 
@@ -82,7 +78,6 @@ numeros = [1, 2, 3, 4, 5]
 print(hay_duplicados(numeros))  
 
 # Programa que elimine los elementos duplicados de una lista manteniendo el orden original de los elementos.
-
 def eliminar_duplicados(lista):
     conjunto = set()
     lista_unica = []
@@ -160,3 +155,91 @@ for numero in lista2:
         new_list.append(numero)
 print(type(new_list))
 print(new_list)
+
+# Ejercicio 11:
+# Crea un conjunto con cinco palabras y muestra solo las palabras que tengan más de cuatro letras.
+import random, string
+set_palabras = {"".join(random.choices(string.ascii_letters, k=random.randint(2, 6)))for x in range(5)}
+mayor_4 = {l for l in set_palabras if len(l) > 4}
+print(mayor_4)
+
+# Ejercicio 12:
+# Dado un conjunto de números enteros, escribe un programa que elimine todos los números pares del conjunto.
+set_numeros = {random.randint(1, 100)for n in range(8)}
+impares = {p for p in set_numeros if p % 2 != 0}
+print(impares)
+
+# Ejercicio 13:
+# Escribe una función que reciba dos conjuntos y devuelva True si uno es subconjunto del otro, y False en caso contrario.
+conjunto = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
+sub_conjunto = set(random.sample(list(conjunto), k=random.randint(1, len(conjunto))))
+def verify(conjunto, sub_conjunto):
+    return sub_conjunto.issubset(conjunto) # issubset() es para verificar subconjuntos.
+datos = verify(conjunto, sub_conjunto)
+datos1 = verify(conjunto, {15, 30, 85})
+print(datos1)
+print(datos)
+
+# Ejercicio 14:
+# Escribe un programa que convierta una lista con elementos duplicados en un conjunto y muestre cuántos elementos únicos hay.
+lista_numeros = [1, 56, 89, 22, 89, 5, 1, 23, 77, 54, 10, 5]
+set_unicos = set(lista_numeros)
+print(f"esta es la cantidad de elementos unicos en el conjunto: {len(set_unicos)}")
+
+# Ejercicio 15:
+# Escribe una función que tome un conjunto de números y devuelva un nuevo conjunto con los cuadrados de cada número.
+def elevar_numero(conjunto_numeros):
+    new_set = {num ** 2 for num in conjunto_numeros}
+    return new_set
+data = elevar_numero({1, 56, 89, 22, 89, 5, 1, 23, 77, 54, 10, 5})
+print(data)
+
+# Ejercicio 16:
+# Escribe una función que tome dos conjuntos y verifique si ambos conjuntos tienen al menos un elemento en común.
+def comun(conjunto1, conjunto2):
+    elemento_comun = conjunto1.intersection(conjunto2)
+    if elemento_comun:
+        return f"El elemento que tienen en comun los 2 conjuntos es: {elemento_comun}"
+    else:
+        return "No tienen ningun elemento en comun"
+datos = comun({1,5,8,4},{2, 10, 20, 7, 1})
+print(datos)
+
+# Ejercicio 17:
+# Dado un conjunto de números, elimina el elemento más pequeño del conjunto y muestra el conjunto resultante.
+conjunto_1 = {56, 89, 22, 89, 5, 1, 23, 77, 54, 10, 5}
+if conjunto_1: 
+    elemento_menor = min(conjunto_1)
+    conjunto_1.remove(elemento_menor)
+    print(conjunto_1)
+else:
+    print("El conjunto está vacío.")
+
+# Ejercicio 18:
+# Escribe una función que reciba una lista de palabras y devuelva un conjunto con las palabras que empiezan con vocales.
+def palabras (lista_palabras):
+    vocales = "aeiou"
+    cojunto_palabras = set()
+    for palabras in lista_palabras:
+        if palabras[0].lower() in vocales:
+            cojunto_palabras.add(palabras)
+    return cojunto_palabras
+dat = palabras(["eric", "rosa", "helen", "argentina", "noruega", "escocia"])
+print(dat)
+
+# Ejercicio 19:
+# Dado un conjunto de números, escribe un programa que devuelva el número de elementos que son múltiplos de 3.
+set_multiplos = set(random.randint(1, 100)for n in range(10))
+for multiplos in set_multiplos:
+    if multiplos % 3 == 0:
+        print(multiplos)
+        
+# Ejercicio 20:
+# Escribe un programa que tome dos conjuntos de números y verifique si son disjuntos (es decir, si no tienen elementos en común).
+set_1 = {1, 56, 28, 89, 22, 21, 10, 23, 30}
+set_2 = {1, 56, 97, 85, 27, 35, 10, 23, 30}
+if set_1.isdisjoint(set_2): # isdisjoint(): comprueba si los conjuntos no tienen elementos en común
+    print("Los dos conjuntos son disjuntos ya que no tienen elementos en común.")
+else:
+    elementos_comunes = set_1.intersection(set_2)
+    print(f"Los dos conjuntos sí tienen elementos en común y son: {elementos_comunes}")
