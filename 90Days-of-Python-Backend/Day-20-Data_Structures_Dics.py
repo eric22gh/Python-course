@@ -11,7 +11,7 @@
 # Crear un diccionario
 estudiantes = {"Alice": 25, "Bob": 22, "Charlie": 23}
 
-# Acceder a un valor por su clave
+# # Acceder a un valor por su clave
 print(estudiantes["Alice"]) 
 
 # Añadir un nuevo par clave-valor
@@ -167,4 +167,223 @@ if joven:
 else:
     print("La lista está vacía.")
     
+# Ejercicio 11:
+# Crea un diccionario que almacene el nombre y la cantidad de frutas en una tienda. Luego, escribe un programa que aumente en 10 la cantidad de una fruta dada.
+frutas_tienda = {
+    "manzana":5,
+    "peras":7,
+    "banano":6,
+    "naranjas":2,
+    "melon":3
+}
+for clave, valor in frutas_tienda.items():
+    valor += 10
+    frutas_tienda.update({clave : valor})
+print(frutas_tienda)
+
+############# o #########
+# for clave in frutas_tienda:
+#     frutas_tienda[clave] += 15
+# print(frutas_tienda)
     
+# Ejercicio 12:
+# Escribe una función que reciba un diccionario con nombres y edades, y devuelva un nuevo diccionario con solo las personas mayores de 18 años.
+new_dic = {}
+def mayores_18(edades_personas):
+    for personas, datos in edades_personas.items():
+        if datos["edad"] > 18:
+            new_dic[datos["nombre"]] = datos["edad"]     
+    return new_dic
+datos = mayores_18({
+    "persona1" : {"nombre" : "eric", "edad" : 25},
+    "persona2" : {"nombre" : "helen", "edad" : 42},
+    "persona3" : {"nombre" : "maria", "edad" : 12},
+    "persona4" : {"nombre" : "carlos", "edad" : 10},
+    "persona5" : {"nombre" : "damaris", "edad" : 45}
+})
+print(datos)
+
+# Ejercicio 13:
+# Crea un diccionario con claves como el nombre de países y valores como sus capitales. 
+# Escribe un programa que invierta las claves y valores (las capitales serán las claves y los países los valores).
+def inverted(paises):
+    try:
+        new = {valor: clave for clave, valor in paises.items()}
+        return new
+    except Exception as e:
+        return f"Error: {e}"
+    
+dato = inverted({
+    "argentina": "Buenos aires",
+    "Portugal": "Lisboa",
+    "Bielorussia" : "Misnk",
+    "Noruega" : "Oslo",
+    "Escosia" : "Edimburgo"
+})
+print(dato)
+
+# Ejercicio 14:
+# Dado un diccionario que almacene nombres de estudiantes y sus calificaciones, escribe una función que calcule y 
+# devuelva la calificación promedio de todos los estudiantes.
+def promedio_avanzado(notas_estudiantes):
+    total_notas = 0
+    total_materias = 0
+    for estudiantes, notas in notas_estudiantes.items():
+        total_notas += sum(notas.values())
+        total_materias += len(notas.values())
+    promedio = total_notas / total_materias
+    return F"el promedio de notas de todos los estudiantes es de: {promedio:.0F}"
+    
+dato = promedio_avanzado({
+    "cristofer" : {"ciencias" : 89, "matematicas" : 78, "español" : 55},
+    "rosa" : {"ciencias" : 99, "matematicas" : 70, "español" : 45},
+    "marcos" : {"ciencias" : 80, "matematicas" : 68, "español" : 85},
+    "maria" : {"ciencias" : 99, "matematicas" : 88, "español" : 95},
+    "helen" : {"ciencias" : 59, "matematicas" : 58, "español" : 95}
+})
+print(dato)
+
+########### otra forma #######
+def prom(estudiantes):
+    suma_notas = 0
+    for  v in estudiantes.values():
+        suma_notas += v
+    cantidad = len(estudiantes.values())
+    promedio = suma_notas / cantidad
+    return promedio
+nota = prom({
+    "alex" : 85,
+    "eric" : 55,
+    "maria" : 65,
+    "lucia" : 75,
+    "carlos" : 95
+})
+print(nota)
+
+# Ejercicio 15:
+# Escribe un programa que combine dos diccionarios de tal manera que los valores de claves comunes se sumen.
+dic_1 = {
+    "valor1" : 5,
+    "valor9" : 10,
+    "valor3" : 50,
+    "valor4" : 59,
+    "valor5" : 56,
+    "valor6" : 5 
+}
+dic_2 = {
+    "valor7" : 51,
+    "valor8" : 40,
+    "valor9" : 500,
+    "valor10" : 5,
+    "valor11" : 6,
+    "valor12" : 50 
+}
+unido = {}
+for k, v in dic_1.items():
+    unido[k] = v # otra forma de agregar clave-valor a un diccionario
+
+for k, v in dic_2.items():
+    if k in unido: # si alguna clave [k] esta el dicc unido
+        unido[k] += v # sumele a esa clave[k] el valor[v] de la clave que a encontrado nuevamente
+    else:
+        unido[k] = v # de los contrario continua agregando clave y valor a unido
+
+print(unido)
+
+# Ejercicio 16:
+# Dado un diccionario con nombres de empleados y sus salarios, escribe una función que devuelva el nombre del empleado con el salario más alto.
+def salario_alto_dic(empleados):
+    orden = dict(sorted(empleados.items(), key= lambda x:x[1], reverse=True))
+    mejor_salario = list(orden.keys())
+    return F"el empleado con mejor salario es: {mejor_salario[0]}"
+
+# def salario_alto_dic(empleados):
+#     # Usamos la función 'max()' para encontrar la clave con el valor más alto en el diccionario 'empleados'.
+#     # La clave es el nombre del empleado, y el valor es el salario.
+#     # El parámetro 'key=empleados.get' le dice a 'max()' que busque el máximo basándose en los valores (los salarios).
+#     mejor_salario = max(empleados, key=empleados.get)
+#     return f"El empleado con mejor salario es: {mejor_salario}"
+
+dato = salario_alto_dic({
+    "eric" : 250000,
+    "maria" : 550000,
+    "luis" : 350000,
+    "carlos" : 150000,
+    "helen" : 650000
+})
+print(dato)
+
+# Ejercicio 17:
+# Escribe una función que reciba un diccionario y devuelva una lista con todas las claves que tienen valores pares.
+def pares_dic(numeros):
+    lista_p = []
+    for clave, valor in numeros.items():
+        if valor % 2 == 0:
+            lista_p.append(clave)
+    return lista_p
+dato = pares_dic({
+    "num1" : 54,
+    "num2" : 23,
+    "num3" : 8,
+    "num4" : 22,
+    "num5" : 7
+})
+print(dato)
+
+# Ejercicio 18:
+# Crea un diccionario que almacene el nombre y el precio de varios productos en una tienda. Luego, escribe un programa que permita eliminar 
+# un producto si su precio es mayor a un valor dado.
+# UN DICCIONARIO NO SE PUEDE MODIFICAR MIENTRAS SE ITERA EN UN BUCLE FOR
+monto_max = 1000
+productos = {
+    "pala" : 250,
+    "tornillo" : 100,
+    "clavos" : 50,
+    "cierra" : 2050,
+    "martillo" : 400,
+}
+claves_a_eliminar = [clave for clave, valor in productos.items() if valor > monto_max]
+for clave in claves_a_eliminar: # claves_a_eliminar ya no es un diccionario
+    productos.pop(clave)
+print(productos)
+
+# Ejercicio 19:
+# Escribe una función que reciba un diccionario con nombres de personas y sus ciudades, y devuelva cuántas personas viven en cada ciudad.
+from collections import Counter
+def habitantes(personas_ciudades):
+    valor = personas_ciudades.values()
+    numero_habitantes = Counter(valor)
+    resultado = []
+    for ciudad, viven in numero_habitantes.items():
+        resultado.append( f"El número de habitantes en la ciudad de {ciudad} es de: {viven}")
+    return "\n".join(resultado)
+    
+datoss = habitantes({
+    "Ana": "San José",
+    "Carlos": "Limón",
+    "María": "Heredia",
+    "Jorge": "Cartago",
+    "Lucía": "Alajuela",
+    "marcos": "Alajuela",
+    "eric": "Alajuela",
+    "Daniel": "Puntarenas",
+    "Sofía": "Guanacaste"
+})
+print(datoss)
+
+# Ejercicio 20:
+# Dado un diccionario con claves como nombres de estudiantes y valores como una lista de calificaciones, 
+# escribe un programa que devuelva el promedio de cada estudiante.
+estudiantes_calificaciones = {
+    "Pedro": [85, 90, 78],
+    "María": [92, 88, 95],
+    "Juan": [75, 80, 83],
+    "Lucía": [88, 76, 90],
+    "Ana": [93, 91, 89]
+}
+
+for clave, calificaciones in estudiantes_calificaciones.items():
+    suma_calificaciones = sum(calificaciones)
+    conteo = len(calificaciones)
+    promedio_calificaciones = suma_calificaciones / conteo
+    print(f"El promedio del estudiante: {clave} es de: {promedio_calificaciones:.0f}")
