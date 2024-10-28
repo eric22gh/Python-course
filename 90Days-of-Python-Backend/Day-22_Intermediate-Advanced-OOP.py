@@ -10,7 +10,6 @@
 # - **Herencia:** Mecanismo para crear una nueva clase usando atributos y métodos de una clase existente.
 # - **Polimorfismo:** Capacidad de usar una sola interfaz para representar diferentes tipos de datos.
 # - **Encapsulación:** Agrupación de datos y métodos que operan sobre los datos dentro de una única unidad, restringiendo el acceso a algunos de los componentes del objeto.
-
 # Definir una clase
 class Perro:
     # Método inicializador
