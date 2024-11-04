@@ -18,10 +18,11 @@
 with open("archivo.txt", "w") as archivo:
     archivo.write("¡Hola mundo!\n")
     archivo.write("hola, eric hernandez\n") # segunda linea del archivo
+    archivo.write("soy de Costa Rica\n")
     
 # Añadir texto a un Archivo Existente
 with open("archivo.txt", "a") as archivo:
-    archivo.write("Tercera línea añadida.\n")
+    archivo.write("cuarta línea añadida.\n")
 
 # (read) leer un archivo
 with open("archivo.txt", "r") as archivo:
@@ -35,10 +36,14 @@ with open("archivo.txt", "r") as archivo:
     for linea in archivo:
         print(linea.strip())  # strip() elimina los espacios en blanco al inicio y final de cada línea
 
+archivo.close()
+
 ############################
 # # Escribir un archivo binario (copiar una imagen)
 # with open("imagen.png", "wb") as archivo:
-#     archivo.write("contenido_binario") # hay que escribirlo en binario
+#     contenido_binario = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x10\x00\x00\x00\x10\x08\x06\x00\x00\x00\x1f\xf3\xff\xa4\x00\x00\x00\x19tEXtSoftware\x00Adobe ImageReadyq\xc9e<\x00\x00\x00\x9eIDATx\xda\x94\x93\xb1\n\x80 \x0c\x03\xf3\xff\x97\xb2k\xc7$4\xb7\x19\xef\xb6n\xd9\xa5\xfd\xb9\xd4\xae\x83\xd9f>\xde7\x02\xe0\xfa\xf8\x0b5.\x02y\xb9Z\xf6v6iN\x08.\x8c*\x11\xae\x0f\x83h\x8d\xfb.\xa9\x16I\xe5\xb7:\xc6`\xf0\xc4)\xefJ\xc7l?\xc1sT\xd1\xbd\xf8\xd1\xd9QZ\x87\x9c=\xe5U\xb7p\x88\x1eA\xff/\xe8w\xdaO\xd2\x00\x00\x00\x00IEND\xaeB`\x82'
+#     archivo.write(contenido_binario)
+# hay que escribirlo en binario
 
 # # Abrir un archivo en modo binario y leer su contenido
 # with open("imagen.png", "rb") as archivo:
@@ -158,9 +163,12 @@ with open("salida.csv", "r") as CSa:
 
 ################### o
 def contar_lineas(archivo):
-    with open(archivo, "r") as file:
-        line_count = sum(1 for _ in file) 
-    return line_count
+    try:
+        with open(archivo, "r") as file:
+            line_count = sum(1 for _ in file) 
+        return line_count
+    except FileNotFoundError as e:
+        return f"Error: {e}, no se encontro el archivo."
 
 lineas_txt = contar_lineas("file.txt")
 print(f"file.txt tiene {lineas_txt} líneas.")
@@ -175,7 +183,7 @@ print(f"salida.csv tiene {lineas_csv} líneas.")
 def contar_caracteres_alfabeticos(archivo):
     with open(archivo, "r") as file:
         contenido = file.read()
-        caracteres_alfabeticos = [char for char in contenido if char.isalpha()] 
+        caracteres_alfabeticos = [char for char in contenido if char.isalpha()] # isalpha() para saber si es una letra
         return len(caracteres_alfabeticos)
 
 caracteres_alfabeticos = contar_caracteres_alfabeticos("archivo.txt")
@@ -245,7 +253,6 @@ conteo = len(palabra)
 print(f"el numero de veces que aparece la palabra: {patron}, son: {conteo} veces")
 ####################################################################
 from collections import Counter
-# import re
 with open("coto.txt", "r") as leido:
     file = leido.read()
 
@@ -263,4 +270,135 @@ def leer_archivo_binario_y_mostrar_hex(archivo_binario):
         contenido_hex = contenido.hex() # pasarlo a hexadecimal
         print(contenido_hex)
 
-leer_archivo_binario_y_mostrar_hex("nombre_del_archivo.bin")
+leer_archivo_binario_y_mostrar_hex("nombre_del_archivo.bin") 
+
+# Ejercicio 11: Escribe un programa que lea un archivo de texto y cuente cuántas veces aparece una frase específica en él.
+with open("file.txt", "w") as leido:
+    datos = leido.write("HOLA eric hernandez,  ARQUITECTO de soluciones.\nhola helen hernandez, como va todo.\nhola david hernandez, como va todo.")
+
+frase = "hola"
+with open("file.txt", "r") as leido:
+    file = leido.read()
+    conteo = file.count(frase)
+    print(f"La frase {frase} aparece: {conteo} veces en el archivo de texto.") 
+
+# Ejercicio 12: Escribe un programa que lea un archivo CSV y calcule la edad promedio de las personas listadas en él, 
+# asumiendo que el archivo contiene una columna de edades.
+import csv
+with open("personas.csv", "w", newline="") as csv_file:
+    writer = csv.writer(csv_file)
+    #writer.writerow(["nombre","edad"])
+    writer.writerow(["eric", 30])
+    writer.writerow(["helen", 35])
+    writer.writerow(["david", 40])
+    writer.writerow(["carlos", 25])
+
+with open("personas.csv", "r") as csv_file:
+    lector = csv.reader(csv_file)
+    edades = []
+    for fila in lector:
+        edad = fila[1]
+        edades.append(int(edad))
+    promedio = sum(edades) / len(edades)
+    print(f"El promedio de edades del archivo CSV es de: {promedio:.0f}")
+
+# Ejercicio 13: Escribe un programa que lea un archivo de texto y genere un nuevo archivo 
+# que contenga solo las líneas que tienen más de 10 caracteres.
+with open("file.txt", "r") as leido:
+    file = leido.read()
+    lineas = file.split("\n")
+    for linea in lineas:
+        if len(linea) > 10:
+            print(linea)
+
+# Ejercicio 14: Escribe un programa que lea un archivo JSON y escriba un nuevo archivo JSON que contenga solo los elementos 
+# que cumplen con una condición específica (por ejemplo, edad mayor a 30).
+import json
+with open("personas.json", "w") as json_file:
+    personas = [
+        {"nombre": "eric", "edad": 13},
+        {"nombre": "helen", "edad": 35},
+        {"nombre": "david", "edad": 14},
+        {"nombre": "carlos", "edad": 25}
+    ]
+    json.dump(personas, json_file)
+
+with open("personas.json", "r") as json_file:
+    personas = json.load(json_file)
+    for persona in personas:
+        if persona["edad"] > 30:
+            with open("personas2.json", "w") as json_file:
+                json.dump(persona, json_file)
+                print(persona)
+
+# Ejercicio 15: Escribe un programa que lea un archivo de texto y cuente el número de oraciones en él,
+# considerando que una oración termina con un punto, signo de interrogación o exclamación.
+import re
+with open("file.txt", "r") as oraciones:
+    contenido = oraciones.read()
+    oraciones = re.split(r"[.?!]", contenido)
+    oraciones = [oracion.strip() for oracion in oraciones]
+    print(f"En el archivo hay: {len(oraciones)} oraciones.")
+
+    # oraciones = oraciones.split(".")  # para separar por puntos
+    # oraciones = oraciones[:-1] # para quitar el punto
+    # oraciones = [oracion.strip() for oracion in oraciones] # para quitar espacios y saltos de linea
+
+# Ejercicio 16: Escribe un programa que lea un archivo de texto y genere un nuevo archivo que contenga las palabras en orden alfabético, eliminando duplicados.
+with open("file.txt", "r") as palabras:
+    palabras = palabras.read()
+    palabras = palabras.split()
+    palabras = sorted(set(palabras))
+    with open("palabras.txt", "w") as file:
+        file.write("\n".join(palabras))
+
+# Ejercicio 17: Escribe un programa que lea un archivo CSV y convierta cada fila en una lista de diccionarios, 
+# donde las claves son los encabezados del CSV.
+with open("personas_2.csv", "w", newline="") as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(["nombre", "edad"])
+    writer.writerow(["eric", 30])
+    writer.writerow(["helen", 35])
+    writer.writerow(["david", 40])
+    writer.writerow(["carlos", 25])
+
+with open("personas_2.csv", "r") as csv_file:
+    lector = csv.DictReader(csv_file)
+    for persona in lector:
+        print(persona)
+
+# Ejercicio 18: Escribe un programa que lea un archivo de texto y reemplace todas las apariciones de una palabra por otra solo si la palabra está en mayúsculas.
+with open("file.txt", "r") as leido:
+    file = leido.read()
+    palabra = file.split() # para separar las palabras
+    for palabras in palabra:
+        if palabras.isupper(): # para saber si la palabra es en mayúsculas
+            file = file.replace(palabras, "hello")
+    print(file)
+
+# Ejercicio 19: Escribe un programa que lea un archivo binario y muestre la cantidad de bloques de 1024 bytes que contiene.
+with open("file.bin", "wb") as file:
+    file.seek(0)
+    file.write (b'\x48\x6f\x6c\x61\x20\x4d\x75\x6e\x64\x6f\x21')
+
+with open("file.bin", "rb") as file:
+    file.seek(0,2)
+    # print(file.read(1024))
+    file_size = file.tell()
+    file_size = file_size // 1024
+    resto = file_size % 1024  
+
+    print(f"Cantidad de bloques de 1024 bytes: {file_size}")
+    if resto > 0:
+        print("Hay un bloque parcial adicional.")
+
+# Ejercicio 20: Escribe un programa que lea un archivo de texto y genere un resumen que contenga la cantidad de palabras,
+# líneas y caracteres en el archivo.
+with open("file.txt", "r") as leido:
+    file = leido.read()
+    palabras = file.split()
+    lineas = file.splitlines()
+    caracteres = len(file)
+    print(f"el archivo tiene: {caracteres} caracteres")
+    print(f"el archivo tiene: {len(lineas)} lineas")
+    print(f"el archivo tiene: {len(palabras)} palabras")
