@@ -48,6 +48,8 @@ print(number)
 def welcome():
     try:
         name = input("Introduce your name: ").strip() # elimina msj en blanco
+        if not name:
+            raise ValueError
         return f"Hello {name.capitalize()}, Welcome to Python coding practices"
     except Exception as e:
         return e 
