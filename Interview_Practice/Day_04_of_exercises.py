@@ -25,7 +25,9 @@ print(tree_numbers(number))
 # Ejercicio 18: Crea un programa que imprima los números del 1 al 100, pero reemplace múltiplos de 3 por "Fizz" y múltiplos de 5 por "Buzz".
 # Conceptos: Bucles, condicionales.
 for n, i in enumerate(range(1, 101), start=1):
-    if n % 3 == 0:
+    if n % 5 == 0 and n % 3 == 0:
+        print(f"{i}- FizzBuzz")
+    elif n % 3 == 0:
         print(f"{i}- Fizz")
     elif n % 5 == 0:
         print(f"{i}- Buzz")
