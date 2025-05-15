@@ -9,7 +9,7 @@
 # | Notación  | Descripción                      | Ejemplo común                    | Eficiencia  |
 # |-----------|----------------------------------|----------------------------------|-------------|
 # | O(1)      | Tiempo constante                  | Acceso a un elemento en una lista| Excelente   |
-# | O(log n)  | Tiempo logarítmico               | Búsqueda binaria                 | Muy buena   |
+# | O(log n)  | Tiempo logarítmico               | Búsqueda binaria, se reduce a la mitad | Muy buena   |
 # | O(n)      | Tiempo lineal                    | Recorrer una lista                | Buena       |
 # | O(n log n)| Tiempo casi lineal               | Algoritmos de ordenación como Merge Sort | Aceptable |
 # | O(n²)     | Tiempo cuadrático                | Doble bucle anidado              | Pobre       |
