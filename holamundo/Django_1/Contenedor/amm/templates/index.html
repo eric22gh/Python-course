@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}"> # para crear archivos estaticos, se crea en la carpeta de la app con nombre static y se reinicia el server
+</head>
+<body>
+    <h1>Hello word, from django... My name is Eric Hernandez Edwards</h1>
+    <p> I hope you enjoy my web page </p>
+    <hr>
+    {% for i in objeto %} 
+    <li><a href = 'autor/{{ i.id }}'>{{ i.name }}</a></li>
+    {% endfor %}
+    <script src="{% static 'script.js' %}"></script>
+    <
+</body>
+</html>

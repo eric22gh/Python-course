@@ -1,0 +1,32 @@
+# para usar Django se necesita un entorno virtual, para crearlo se usa el siguiente comando:
+# python -m venv nombre_entorno
+
+# para activar el entorno virtual se usa el siguiente comando: source nombre_entorno/Scripts/activate
+# para verificar si django esta en venv: pip list | grep Django
+
+
+# para instalar django se usa el siguiente comando: pip install django
+# para crear un proyecto de django se usa el siguiente comando: django-admin startproject taller, solo la primera carpeta sele puede cambiar el nombre, la q esta adentro no.
+# para correr el servidor python manage.py runserver
+# para crear una app es con python manage.py startapp (nombre unico), debe de ser adentro de taller(el primero)
+# despues hay que registrar nuestra app, de los files q se crearon con python manage.py startapp (n) hay uno que se llama apps,
+# en el copiar el nombre de la funcion y luego irse al file settings de la carpeta q se creo con django-admin startproject taller y
+# ir a installed apps y poner: "(nombreapp).(apps).(funcion)"
+# para desinstalar django se usa el siguiente comando: pip uninstall django
+# ala hora de crear una base de datos o una clase modelo el comando es: python manage.py makemigrations
+# para migrar los datos a base de datos modelo:  python manage.py migrate
+python manage.py test: para hacer un test
+
+# para desactivar el entorno virtual se usa el siguiente comando: deactivate
+
+CREAR UN ADMINISTRADOR(superuser) PARA LA PAGINA
+# dentro de la carpeta contenedor hacemos un python manage.py createsuperuser
+
+# notas: los archivos asgi.py y wsgi.py son para hacer deploy
+# nota la carpeta de templates se crea adentro de nuestra app(amm) y no de la de el proyecto
+# nota en django no necesitamos refrescar para ver los cambios en el servidor
+# nota dentro de la carpeta amm(nombre de app) se crea otras carpetas, templates(para el html(index.html)) y statis(para el css(style.css), java script(script.js))
+
+Django Rest framework esta especializado en las apis
+pip install djangorestframework
+# para las apis hay que ccrear otra app dentro de contenedor: python manage.py startapp mi_api
