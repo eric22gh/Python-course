@@ -2,7 +2,7 @@ from django.shortcuts import render # type: ignore
 from rest_framework import  generics  # type: ignore
 from amm.models import autorDB, Frasedb 
 from .serializers import AutorSerializer, FraseSerializer, AutorFraseSerializer 
-from  rest_framework import viewsets 
+from  rest_framework import viewsets # type: ignore
 
 # Create your views here.
 class AutorList(generics.ListCreateAPIView):
