@@ -1,6 +1,6 @@
-from django.urls import path
+from django.urls import path # type: ignore
 from .views import AutorList, AutorAPICreate, AutorApiRetrieve, AutorApiDestroy, frasedbViewSet, AutorListFrase
-from rest_framework.routers import DefaultRouter # un router es una clase que se encarga de crear las URL para las vistas de un ViewSet.
+from rest_framework.routers import DefaultRouter # type: ignore # un router es una clase que se encarga de crear las URL para las vistas de un ViewSet.
 # es un canalizardor que recive las peticiones y las redirige a la vista correspondiente.
 
 router = DefaultRouter()  # Crear una instancia del router
